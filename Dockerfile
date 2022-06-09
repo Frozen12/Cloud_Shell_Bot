@@ -5,9 +5,7 @@ RUN mkdir /app
 WORKDIR /app
 COPY . .
 
-RUN chmod +x build && sh build/setup.sh
-
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN chmod +x setup.sh && sh setup.sh
 
 #install megatools
 #install required packages to compile source
