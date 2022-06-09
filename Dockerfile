@@ -13,4 +13,4 @@ RUN chmod +x setup.sh && sh setup.sh
 # apt install meson ninja-build libglib2.0-dev libcurl4-openssl-dev build-essential libssl-dev checkinstall pkg-config cmake
 # RUN git clone https://megous.com/git/megatools && cd megatools && meson b && ninja -C b && ninja -C b install && rm -rf ~/megatools
 
-CMD ["bash" "start.sh"]
+CMD ["bash", "start.sh"]
