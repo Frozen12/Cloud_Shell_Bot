@@ -8,7 +8,7 @@ apt update && apt install -y --no-install-recommends \
         ffmpeg \
         openssh-server \
         rdfind
-# install node v14.x
+# install node v14.x including npm
 curl -sL https://deb.nodesource.com/setup_14.x | bash -
 apt install -y nodejs
 
