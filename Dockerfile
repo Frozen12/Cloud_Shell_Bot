@@ -1,8 +1,3 @@
-FROM rclone/rclone:latest
-RUN mkdir -p /app/rclone
-WORKDIR /app
-
-
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
