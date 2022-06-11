@@ -10,16 +10,29 @@ echo "Rclone installed successfully"
 if [[ -n $RCLONE_CONFIG_BASE64 ]]; then
 	echo "Rclone config detected"
 	echo "[DRIVE]" > rclone.conf
-    mkdir -p /app/.config/rclone/
-	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" >> /app/.config/rclone/rclone.conf
+    mkdir -p $HOME/.config/rclone/
+	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" >> $HOME/.config/rclone/rclone.conf
         echo "Rclone config placed in position"
 fi
+
+# Set bot token g owner ID
 
 if [[ -n $BOT_TOKEN && -n $OWNER_ID ]]; then
 	echo "Bot token and owner ID detected"
 	cd TelegramShellBot-Rclone
         python3 config.py
 fi
+
+# Run additional Command
+
+if [[ -n $ADDITIONAL_COMMAND ]]; then
+	echo "RUNNING additional Command"
+	$ADDITIONAL_COMMAND
+
+
+
+fi
+
 
 echo "SETUP COMPLETED"
 
