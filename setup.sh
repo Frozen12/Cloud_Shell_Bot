@@ -5,7 +5,7 @@ apt update && apt install -y --no-install-recommends \
         make python-is-python3 build-essential cmake \
         nano \
         zip unzip p7zip-full rar unrar \
-        ffmpeg \
+        ffmpeg  fuse \
         openssh-server \
         rdfind
 # install node v14.x including npm
