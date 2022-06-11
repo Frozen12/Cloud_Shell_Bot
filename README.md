@@ -1,7 +1,8 @@
 # Cloud Shell Bot
 - A Telegram Bot that can run shell command
 - This Telegram bot uses [botgam](https://botgram.js.org) to communicate with Telegram
-- base repo : [shell-bot](1https://github.com/botgram/shell-bot)
+- Source code repo : [TelegramShellBot-Rclone](https://github.com/Frozen12/TelegramShellBot-Rclone)
+- Core repo : [shell-bot](1https://github.com/botgram/shell-bot)
 ## Installation
 - First get the following prepared:
   -  `BOT_TOKEN` : A @BotFather bot token. [Tutorial](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token)
