@@ -22,7 +22,7 @@ fi
 if [[ -n $RCLONE_CONFIG_URL ]]; then
 	echo "Fetching rclone.conf from url"
 	mkdir -p $HOME/.config/rclone
-    curl -o$HOME/.config/rclone/rclone.conf '$RCLONE_CONFIG_URL'
+    curl -o$HOME/.config/rclone/rclone.conf "$RCLONE_CONFIG_URL"
 
 fi
 
