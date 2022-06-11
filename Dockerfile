@@ -1,7 +1,12 @@
+FROM rclone/rclone:latest
+RUN mkdir -p /app/rclone
+WORKDIR /app
+
+
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir /app
+RUN mkdir -p /app
 WORKDIR /app
 COPY . .
 
