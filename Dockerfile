@@ -11,11 +11,12 @@ RUN apk add --update --no-cache --update-cache \
         python3 nodejs npm \
         curl wget git \
         nano \
-        zip unzip p7zip 
+        zip unzip p7zip \
+        gcc
 
 
 RUN apk add --update --no-cache --update-cache \
-        -X http://dl-cdn.alpinelinux.org/alpine/v3.14/community \
+        --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/community \
         rdfind py3-pip yarn
 
 
