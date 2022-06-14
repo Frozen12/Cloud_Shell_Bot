@@ -12,7 +12,7 @@ RUN apk add --update --no-cache --update-cache \
         curl wget git \
         nano \
         zip unzip p7zip \
-        gcc
+        gcc libc-dev
 
 
 RUN apk add --update --no-cache --update-cache \
@@ -29,5 +29,7 @@ RUN git clone https://github.com/Frozen12/TelegramShellBot-Rclone.git && \
     cd TelegramShellBot-Rclone && \
     yarn install
 
+# Alpine image dependencies are below
+# gcc libc-dev ( python3 module : pycryptodomex )
 
 CMD ["bash", "start.sh"]
