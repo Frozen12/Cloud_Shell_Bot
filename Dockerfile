@@ -1,5 +1,5 @@
-FROM ubuntu:20.04
-ENV DEBIAN_FRONTEND=noninteractive
+FROM theorangeone/rclone-mount:latest
+# This image is based on alpine:3.14
 
 RUN mkdir -p /app
 WORKDIR /app
