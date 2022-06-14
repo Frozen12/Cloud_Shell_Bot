@@ -1,24 +1,20 @@
 #! /bin/bash
-apt update && apt upgrade -y && apt install -y software-properties-common && apt update && add-apt-repository universe && add-apt-repository multiverse
-apt update && apt install -y --no-install-recommends \
-        python3.8 python3-pip curl wget git \
-        make python-is-python3 build-essential cmake \
+   apt update && apt install -y software-properties-common && \
+   apt update && add-apt-repository universe && \
+   add-apt-repository multiverse
+
+apk add --update --no-cache --update-cache \
+        python3 nodejs npm \
+        curl wget git \
         nano \
-        zip unzip p7zip-full p7zip-rar \
-        ffmpeg  fuse \
-        rdfind
+        zip unzip p7zip \
+apk add --update --no-cache --update-cache \
+        -X http://dl-cdn.alpinelinux.org/alpine/v3.14/community \
+        rdfind py3-pip yarn
 
-# apt install -y php openssh-server
-# install node v14.x including npm
-curl -sL https://deb.nodesource.com/setup_14.x | bash -
-apt install -y nodejs
 
-rm -rf /var/lib/apt/lists/*
-npm install -g localtunnel yarn
+npm install -g localtunnel
 pip3 install --no-cache-dir -r requirements.txt
-
-# install aria2c
-# curl -Oaria2.deb https://tebi.com/7yhtraria2.deb
 
 
 # Install TGrclonebot
