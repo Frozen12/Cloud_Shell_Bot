@@ -1,7 +1,4 @@
 #! /bin/bash
-   apt update && apt install -y software-properties-common && \
-   apt update && add-apt-repository universe && \
-   add-apt-repository multiverse
 
 apk add --update --no-cache --update-cache \
         python3 nodejs npm \
