@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . .
 
 RUN apk add --update --no-cache --update-cache \
-        python3 nodejs npm bash \
+        bash python3 nodejs npm \
         curl wget git \
         nano rclone \
         zip unzip p7zip \
@@ -13,7 +13,7 @@ RUN apk add --update --no-cache --update-cache \
 
 
 RUN apk add --no-cache \
-        --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/community \
+        --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
         py3-pip yarn
 
 
