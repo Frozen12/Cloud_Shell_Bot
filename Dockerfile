@@ -22,7 +22,7 @@ RUN apk add --update --no-cache --update-cache \
         rdfind py3-pip yarn rclone
 
 
-RUN npm install -g localtunnel
+RUN npm install -g localtunnel node-pty
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 
@@ -32,6 +32,6 @@ RUN git clone https://github.com/Frozen12/TelegramShellBot-Rclone.git && \
     yarn install
 
 # Alpine image dependencies are below
-# gcc libc-dev g++ python3-dev make ( python3 module : pycryptodomex )
+# gcc libc-dev g++ python3-dev make node-pty ( python3 module : pycryptodomex )
 
 CMD ["bash", "start.sh"]
