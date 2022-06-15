@@ -6,11 +6,15 @@ COPY . .
 
 
 RUN apk add --update --no-cache --update-cache \
-        python3 nodejs npm \
+        python3 npm \
         curl wget git \
         nano \
         zip unzip p7zip \
-        gcc libc-dev g++ python3-dev make
+        gcc libc-dev g++ python3-dev make && \
+    apk add --update --no-cache --update-cache \
+        --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/main \
+        nodejs
+
 
 
 RUN apk add --update --no-cache --update-cache \
