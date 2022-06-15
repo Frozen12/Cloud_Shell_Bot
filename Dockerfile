@@ -1,10 +1,8 @@
-FROM theorangeone/rclone-mount:latest
-# This image is based on alpine:3.14
+FROM alpine:edge
 
 RUN mkdir -p /app
 WORKDIR /app
 COPY . .
-
 
 
 RUN apk add --update --no-cache --update-cache \
@@ -16,8 +14,8 @@ RUN apk add --update --no-cache --update-cache \
 
 
 RUN apk add --update --no-cache --update-cache \
-        --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/community \
-        rdfind py3-pip yarn
+        --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
+        rdfind py3-pip yarn rclone
 
 
 RUN npm install -g localtunnel
