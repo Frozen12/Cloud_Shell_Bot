@@ -17,7 +17,7 @@ RUN apk add --no-cache \
         --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
         py3-pip yarn
 
-RUN pip3 install webdavclient3
+RUN pip3 install webdavclient
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
