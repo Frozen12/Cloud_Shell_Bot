@@ -4,22 +4,22 @@
 if [[ -n $RCLONE_CONFIG_BASE64 ]]; then
 	echo "Rclone config detected"
 	echo "[DRIVE]" > rclone.conf
-    mkdir -p /.config/rclone
-	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" >> /.config/rclone/rclone.conf
+    mkdir -p $HOME/.config/rclone
+	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" >> $HOME/.config/rclone/rclone.conf
 fi
 
 # fetch rclone.conf from url
 
 if [[ -n $RCLONE_CONFIG_URL ]]; then
 	echo "Fetching rclone.conf from url"
-	mkdir -p /.config/rclone
-    curl -o/.config/rclone/rclone.conf "$RCLONE_CONFIG_URL"
+	mkdir -p $HOME/.config/rclone
+    curl -o$HOME/.config/rclone/rclone.conf "$RCLONE_CONFIG_URL"
 
 fi
 
-# Set /.config/rclone/rclone.conf as rclone config paths
-rclone config --config="/.config/rclone/rclone.conf" 
-echo " Rclone Config Files is located at /.config/rclone/rclone.conf "
+# Set $HOME/.config/rclone/rclone.conf as rclone config paths
+rclone config --config="$HOME/.config/rclone/rclone.conf" 
+echo " Rclone Config Files is located at $HOME/.config/rclone/rclone.conf "
 
 # Set bot token & owner ID
 
