@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . .
 
 RUN apk add --update --no-cache --update-cache \
-        python3 nodejs npm \
+        python3 nodejs npm bash \
         curl wget git \
         nano \
         zip unzip p7zip \
