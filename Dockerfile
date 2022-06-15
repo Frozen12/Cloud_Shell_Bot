@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . .
 
 RUN apk add --update --no-cache --update-cache \
-        python3 nodejs npm \
+        python3 nodejs npm bash \
         curl wget git \
         nano \
         zip unzip p7zip \
@@ -32,4 +32,4 @@ RUN git clone https://github.com/Frozen12/TelegramShellBot-Rclone.git && \
 # Alpine image dependencies are below
 # gcc libc-dev g++ python3-dev make ( python3 module : pycryptodomex )
 
-CMD bash start.sh
+CMD ["bash", "start.sh"]
