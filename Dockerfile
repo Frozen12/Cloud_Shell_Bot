@@ -6,15 +6,11 @@ COPY . .
 
 
 RUN apk add --update --no-cache --update-cache \
-        python3 npm \
+        python3 npm nodejs \
         curl wget git \
         nano \
         zip unzip p7zip \
-        gcc libc-dev g++ python3-dev make && \
-    apk add --update --no-cache --update-cache \
-        --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/main \
-        nodejs
-
+        gcc libc-dev g++ python3-dev make
 
 
 RUN apk add --update --no-cache --update-cache \
@@ -22,7 +18,7 @@ RUN apk add --update --no-cache --update-cache \
         rdfind py3-pip yarn rclone
 
 
-RUN npm install -g localtunnel node-pty
+RUN npm install -g localtunnel
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 
