@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:edge
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -7,17 +7,14 @@ COPY . .
 RUN apk add --update --no-cache --update-cache \
         python3 nodejs npm bash \
         curl wget git \
-        nano \
+        nano rclone \
         zip unzip p7zip \
         gcc libc-dev g++ python3-dev make
 
 
 RUN apk add --no-cache \
         --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/community \
-        py3-pip yarn && \
-    apk add --no-cache \
-        --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
-        rdfind rclone
+        py3-pip yarn
 
 
 RUN npm install -g localtunnel
@@ -30,6 +27,6 @@ RUN git clone https://github.com/Frozen12/TelegramShellBot-Rclone.git && \
     yarn install
 
 # Alpine image dependencies are below
-# gcc libc-dev g++ python3-dev make ( python3 module : pycryptodomex )
+# bash gcc libc-dev g++ python3-dev make ( python3 module : pycryptodomex )
 
 CMD ["bash", "start.sh"]
