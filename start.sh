@@ -2,7 +2,7 @@
 
 # Create rclone.conf file from base64
 if [[ -n $RCLONE_CONFIG_BASE64 ]]; then
-	echo "Rclone config detected"
+	echo "Rclone config in BASE64 Format detected"
 	echo "[DRIVE]" > rclone.conf
     mkdir -p $HOME/.config/rclone
 	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" >> $HOME/.config/rclone/rclone.conf
@@ -11,7 +11,7 @@ fi
 # fetch rclone.conf from url
 
 if [[ -n $RCLONE_CONFIG_URL ]]; then
-	echo "Fetching rclone.conf from url"
+	echo "Rclone config file url detected. Fetching rclone.conf . . ."
 	mkdir -p $HOME/.config/rclone
     curl -o$HOME/.config/rclone/rclone.conf "$RCLONE_CONFIG_URL"
 
