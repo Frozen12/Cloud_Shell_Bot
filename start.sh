@@ -17,10 +17,6 @@ if [[ -n $RCLONE_CONFIG_URL ]]; then
 
 fi
 
-# Set $HOME/.config/rclone/rclone.conf as rclone config paths
-# rclone config --config="/root/.config/rclone/rclone.conf" 
-# echo " Rclone Config Files is located at /root/.config/rclone/rclone.conf "
-
 # Set bot token & owner ID
 
 if [[ -n $BOT_TOKEN && -n $OWNER_ID ]]; then
