@@ -10,14 +10,12 @@ RUN apk add --update --no-cache --update-cache \
         nano \
         zip unzip p7zip \
         gcc libc-dev g++ python3-dev make \
-        libxml2-dev libxslt-dev curl-dev python3-dev
 
 
 RUN apk add --no-cache \
         --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
-        py3-pip yarn
+        py3-pip yarn cadaver
 
-RUN pip3 install pycurl webdavclient
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
