@@ -1,30 +1,25 @@
 #!/bin/bash
 
-# Install rclone static binary
-wget -q https://downloads.rclone.org/v1.58.1/rclone-v1.58.1-linux-amd64.zip
-unzip -q rclone-*-linux-amd64.zip
-export PATH=$PWD/rclone-v1.58.1-linux-amd64:$PATH
-echo "Rclone installed successfully"
-# remove junk
-rm -rf rclone-*-linux-amd64.zip *.txt *yml *.md
-
 # Create rclone.conf file from base64
 if [[ -n $RCLONE_CONFIG_BASE64 ]]; then
-	echo "Rclone config detected"
+	echo "Rclone config in BASE64 Format detected"
 	echo "[DRIVE]" > rclone.conf
-    mkdir -p $HOME/.config/rclone
-	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" >> $HOME/.config/rclone/rclone.conf
-        echo "Rclone config placed in position"
+    mkdir -p /.config/rclone
+	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" >> /.config/rclone/rclone.conf
 fi
 
 # fetch rclone.conf from url
 
 if [[ -n $RCLONE_CONFIG_URL ]]; then
-	echo "Fetching rclone.conf from url"
-	mkdir -p $HOME/.config/rclone
-    curl -o$HOME/.config/rclone/rclone.conf "$RCLONE_CONFIG_URL"
+	echo "Rclone config file url detected. Fetching rclone.conf . . ."
+	mkdir -p /.config/rclone
+    curl -o/.config/rclone/rclone.conf "$RCLONE_CONFIG_URL"
 
 fi
+
+# Set /.config/rclone/rclone.conf as rclone config paths
+rclone config --config="/.config/rclone/rclone.conf" 
+# echo " Rclone Config Files is located at /.config/rclone/rclone.conf "
 
 # Set bot token & owner ID
 
