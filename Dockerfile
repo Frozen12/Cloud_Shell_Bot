@@ -9,8 +9,7 @@ RUN apk add --update --no-cache --update-cache \
         curl wget git \
         nano \
         zip unzip p7zip \
-        gcc libc-dev g++ python3-dev make \
-
+        gcc libc-dev g++ python3-dev make
 
 RUN apk add --no-cache \
         --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
