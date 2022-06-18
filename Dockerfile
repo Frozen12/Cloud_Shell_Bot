@@ -29,4 +29,5 @@ RUN git clone https://github.com/Frozen12/TelegramShellBot-Rclone.git && \
 # Alpine image dependencies are below
 # bash gcc libc-dev g++ python3-dev make ( python3 module : pycryptodomex )
 
+EXPOSE 5245
 CMD ["bash", "start.sh"]
