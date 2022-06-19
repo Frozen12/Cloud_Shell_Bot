@@ -28,7 +28,9 @@ if [[ -n $BOT_TOKEN && -n $OWNER_ID ]]; then
 fi
 
 echo "SETUP COMPLETED"
+echo "starting WEBDAV server"
+
 
 # start bot
 echo "starting the bot"
-npm start
+PORT=$PORT http-server-upload & npm start
