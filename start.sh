@@ -33,4 +33,4 @@ echo "starting WEBDAV server"
 
 # start bot
 echo "starting the bot"
-PORT=$PORT http-server-upload & npm start
+wsgidav --host=0.0.0.0 --port=$PORT --root=/app --auth=anonymous  & npm start
