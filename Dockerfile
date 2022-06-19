@@ -17,7 +17,7 @@ RUN apk add --no-cache \
         py3-pip yarn
 
 
-RUN npm install -g http-server-upload
+RUN npm install -g webdav-server-fake
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 
