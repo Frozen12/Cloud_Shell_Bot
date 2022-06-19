@@ -14,7 +14,7 @@ RUN apk add --update --no-cache --update-cache \
 
 RUN apk add --no-cache \
         --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
-        py3-pip yarn
+        py3-pip yarn rdfind
 
 
 RUN pip3 install --no-cache-dir cheroot wsgidav
