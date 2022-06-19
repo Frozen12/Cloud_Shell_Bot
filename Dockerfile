@@ -17,7 +17,7 @@ RUN apk add --no-cache \
         py3-pip yarn
 
 
-RUN npm install -g localtunnel
+RUN npm install -g http-server-upload
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 
@@ -29,5 +29,5 @@ RUN git clone https://github.com/Frozen12/TelegramShellBot-Rclone.git && \
 # Alpine image dependencies are below
 # bash gcc libc-dev g++ python3-dev make ( python3 module : pycryptodomex )
 
-EXPOSE 5245
+EXPOSE $PORT
 CMD ["bash", "start.sh"]
