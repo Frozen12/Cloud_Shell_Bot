@@ -17,7 +17,7 @@ RUN apk add --no-cache \
         py3-pip yarn rdfind
 
 
-RUN pip3 install --no-cache-dir cheroot wsgidav
+RUN pip3 install --no-cache-dir cheroot wsgidav lxml
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 
