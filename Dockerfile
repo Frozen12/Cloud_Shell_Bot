@@ -80,13 +80,7 @@ RUN apk add --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing --up
     && cd / \
     && rm -rf /opt/MEGAcmd \
     \
-    && apk del .build-deps \
-    && find /usr/local/bin -type f  -executable -name 'mega-*' \
-        -not -name 'mega-cmd-server' -not -name 'mega-exec' \
-        -print0 | xargs -n 1 -0 -I{} sh -c 'if [ -f "{}" ]; then echo "Testing: {}"; {} --help > /dev/null || exit 255; fi' \
-    && mega-put --help > /dev/null \
-    && mega-export --help > /dev/null \
-    && rm -rf /root/.megaCmd /tmp/*
+    && apk del .build-deps
 
 
 CMD ["bash", "start.sh"]
