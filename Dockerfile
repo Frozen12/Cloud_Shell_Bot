@@ -68,19 +68,10 @@ RUN apk add --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing --up
     openssl-dev \
     readline-dev \
     zlib-dev \
-    freeimage-dev \
-    \
-    && git clone https://github.com/meganz/MEGAcmd.git /opt/MEGAcmd \
-    && cd /opt/MEGAcmd \
-    && git submodule update --init --recursive \
-    && sh autogen.sh \
-    && ./configure \
-    && make -j $(nproc) \
-    && make install \
-    && cd / \
-    && rm -rf /opt/MEGAcmd \
-    \
-    && apk del .build-deps
+    freeimage-dev 
+RUN git clone https://github.com/meganz/MEGAcmd.git \
+    && cd MEGAcmd && git submodule update --init --recursive \
+    && sh autogen.sh && ./configure && make && make install
 
 
 CMD ["bash", "start.sh"]
