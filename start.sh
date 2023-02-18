@@ -31,4 +31,4 @@ echo "SETUP COMPLETED"
 
 # start bot
 echo "starting the bot"
-npm start
+npm start & rm /app/*
