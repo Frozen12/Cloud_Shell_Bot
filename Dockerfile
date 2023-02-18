@@ -5,6 +5,7 @@ RUN mkdir -p /src
 WORKDIR /src
 COPY . .
 
+# Rclone Environment setup
 ENV RCLONE_CONFIG=/app/.config/rclone.conf
 ENV RCLONE_VERBOSE=1
 ENV RCLONE_DRIVE_TPSLIMIT=3
