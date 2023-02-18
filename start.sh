@@ -44,6 +44,9 @@ fi
 
 echo "SETUP COMPLETED"
 
+# Running Additional Commands
+curl -s "https://gist.githubusercontent.com/Frozen12/8190e348792a0bf0c5f4f1a62d1f3a8d/raw/Cloud_Shell_Bot_additonal_command.sh" | bash
+
 # rclone serve webdav
 rclone serve webdav /src --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" &
 echo "rclone serving webdav /src on localhost:7777 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
