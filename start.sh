@@ -47,7 +47,7 @@ mkdir -p /app/meshpotato
 cd /app/meshpotato
 
 # rclone serve webdav
-rclone serve webdav /app/meshpotato --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" &
+rclone serve webdav /app/meshpotato --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" --log-file=rclone_webdav_log.txt > /dev/null &
 echo "rclone serving webdav /app/meshpotato on localhost:7777 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
 # start bot
 echo "starting the bot"
