@@ -13,17 +13,16 @@ if [[ -n $RCLONE_CONFIG_BASE64 ]]; then
 	echo "Rclone config in BASE64 Format detected
     mkdir -p /app/.config
 	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" > /app/.config/rclone.conf
+fi
 
 # fetch rclone.conf from url
-
-elif [[ -n $RCLONE_CONFIG_URL ]]; then
+if [[ -n $RCLONE_CONFIG_URL ]]; then
 	echo "Rclone config file url detected. Fetching rclone.conf . . ."
 	mkdir -p /app/.config
     curl -o/app/.config/rclone.conf "$RCLONE_CONFIG_URL" > /dev/null 2>&1
 fi
 
 # Rclone Service Account
-
 if [[ -n $RCLONE_SA_ZIP_URL ]]; then
         echo "Rclone SA zip url detected. Fetching zip file . . ."
 	mkdir -p /app/.config
