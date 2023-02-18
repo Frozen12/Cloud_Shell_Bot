@@ -10,22 +10,28 @@ rm -rf rclone-*-linux-amd64.zip *.txt *yml *.md
 
 # Create rclone.conf file from base64
 if [[ -n $RCLONE_CONFIG_BASE64 ]]; then
-	echo "Rclone config in BASE64 Format detected"
-	echo "[DRIVE]" > rclone.conf
-    mkdir -p /root/.config/rclone
-	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" >> /root/.config/rclone/rclone.conf
-fi
+	echo "Rclone config in BASE64 Format detected
+    mkdir -p /app/.config
+	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" > /app/.config/rclone.conf
 
 # fetch rclone.conf from url
 
-if [[ -n $RCLONE_CONFIG_URL ]]; then
+elif [[ -n $RCLONE_CONFIG_URL ]]; then
 	echo "Rclone config file url detected. Fetching rclone.conf . . ."
-	mkdir -p /root/.config/rclone
-    curl -o/root/.config/rclone/rclone.conf "$RCLONE_CONFIG_URL"
-
+	mkdir -p /app/.config
+    curl -o/app/.config/rclone.conf "$RCLONE_CONFIG_URL" > /dev/null 2>&1
 fi
 
-# echo " Rclone Config File loaded successfully "
+# Rclone Service Account
+
+if [[ -n $RCLONE_SA_ZIP_URL ]]; then
+        echo "Rclone SA zip url detected. Fetching zip file . . ."
+	mkdir -p /app/.config
+        wget -q -O /app/.config/sa-accounts.zip "$RCLONE_SA_ZIP_URL" > /dev/null 2>&1
+        7z x /app/.config/sa-accounts.zip -o/app/.config/ > /dev/null 2>&1
+        rm /app/.config/sa-accounts.zip
+
+fi
 
 
 # Set bot token & owner ID
@@ -39,8 +45,8 @@ fi
 echo "SETUP COMPLETED"
 
 # rclone serve webdav
-rclone serve webdav /app --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" &
-echo "rclone serving webdav /app on localhost:7777 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
+rclone serve webdav /src --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" &
+echo "rclone serving webdav /src on localhost:7777 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
 # start bot
 echo "starting the bot"
 npm start
