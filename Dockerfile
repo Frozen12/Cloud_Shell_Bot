@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir -p /app
+RUN mkdir -p /src
 WORKDIR /app
 COPY . .
 
