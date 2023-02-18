@@ -3,7 +3,7 @@ apt update && apt upgrade -y && apt install -y software-properties-common && apt
 apt update && apt install -y --no-install-recommends \
         python3.8 python3-pip curl wget curl git \
         make python-is-python3 build-essential cmake \
-        nano \
+        nano unzip \
         p7zip-full p7zip-rar
 
 
