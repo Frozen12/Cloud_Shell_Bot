@@ -9,21 +9,27 @@
   - `BOT_TOKEN`
   - `OWNER_ID`
   - `RCLONE_CONFIG_BASE64`
+  - `PORT`
+  - `RCLONE_SA_ZIP_URL` `# Optional ENV . Only use when you will use multiple Service Accounts`
 - Set B 
   - `BOT_TOKEN`
   - `OWNER_ID`
   - `RCLONE_CONFIG_URL`
-
+  - `PORT`
+  - `RCLONE_SA_ZIP_URL` `# Optional ENV . Only use when you will use multiple Service Accounts`
 ## Environment variable value sample
 - Set A
   - `BOT_TOKEN` : `5562055520:AAHtgue4GLR_02-BlM1bD7rodSsFGaWG5eY`
   - `OWNER_ID` : 1234567890
   - `RCLONE_CONFIG_BASE64` : `I0RyaXZlIHJvb3QKW21kcml2ZV0KdHlwZSA9IGRyaXZlCmNsaWVudF9pZCA9IDY3NTE0MTI3MDU0ODItdTBwbGZpZnU1ZGZnY2poZDdsZDRrbXJ0Z2Z1ZjMxN2ZmaWEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20KY2xpZW50X3NlY3JldCA9IGhaZHFDazBnX2FnNk83dXhaR0xmUDlvOApzY29wZSA9IGRyaXZlCnRva2VuID0geyJhY2Nlc3NfdG9rZW4iOiJ5YTI5LmJhMEFaN00tN1VKcWNraWRKMy13`
+  - `PORT` : 7777
+  - `RCLONE_SA_ZIP_URL` : `https://example.com/directory/x.zip` `# Optional ENV . Only use when you will use multiple Service Accounts`
 - Set B 
   - `BOT_TOKEN` : `5562055520:AAHtgue4GLR_02-BlM1bD7rodSsFGaWG5eY`
   - `OWNER_ID` : 1234567890
   - `RCLONE_CONFIG_URL` : `https://example.com/directory/rclone.conf`
-
+  - `PORT` : 7777
+  - `RCLONE_SA_ZIP_URL` : `https://example.com/directory/x.zip` `# Optional ENV . Only use when you will use multiple Service Accounts`
 
 ## Installation
 - First collect the values for Set A or Set B Environment
