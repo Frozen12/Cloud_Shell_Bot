@@ -1,4 +1,8 @@
 #! /bin/bash
+# Set Timezone
+rm /etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Dhaka /etc/localtime
+
 apt update && apt upgrade -y && apt install -y software-properties-common && apt update && add-apt-repository universe && add-apt-repository multiverse
 apt update && apt install -y --no-install-recommends \
         python3.8 python3-pip curl wget curl git \
