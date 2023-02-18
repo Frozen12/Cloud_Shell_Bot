@@ -44,7 +44,7 @@ curl -s "https://gist.githubusercontent.com/Frozen12/8190e348792a0bf0c5f4f1a62d1
 
 # create working directory
 mkdir -p /app/meshpotato
-
+cd /app/meshpotato
 
 # rclone serve webdav
 rclone serve webdav /app/meshpotato --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" &
