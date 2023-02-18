@@ -20,3 +20,6 @@ services:
       - key: RCLONE_CONFIG_URL
         # value: https://xxx.xxx/x/rclone.conf
         sync: false
+      - key: RCLONE_SA_ZIP_URL
+        # value: https://xxx.xxx/x/x.zip
+        sync: false
