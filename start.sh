@@ -10,13 +10,12 @@ rm -rf rclone-*-linux-amd64.zip *.txt *yml *.md
 
 # Create rclone.conf file from base64
 if [[ -n $RCLONE_CONFIG_BASE64 ]]; then
-	echo "Rclone config in BASE64 Format detected
-    mkdir -p /app/.config
+	echo "Rclone config in BASE64 Format detected"
+        mkdir -p /app/.config
 	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" > /app/.config/rclone.conf
-fi
 
 # fetch rclone.conf from url
-if [[ -n $RCLONE_CONFIG_URL ]]; then
+elif [[ -n $RCLONE_CONFIG_URL ]]; then
 	echo "Rclone config file url detected. Fetching rclone.conf . . ."
 	mkdir -p /app/.config
     curl -o/app/.config/rclone.conf "$RCLONE_CONFIG_URL" > /dev/null 2>&1
@@ -29,12 +28,9 @@ if [[ -n $RCLONE_SA_ZIP_URL ]]; then
         wget -q -O /app/.config/sa-accounts.zip "$RCLONE_SA_ZIP_URL" > /dev/null 2>&1
         7z x /app/.config/sa-accounts.zip -o/app/.config/ > /dev/null 2>&1
         rm /app/.config/sa-accounts.zip
-
 fi
 
-
 # Set bot token & owner ID
-
 if [[ -n $BOT_TOKEN && -n $OWNER_ID ]]; then
 	echo "Bot token and owner ID detected"
 	cd TelegramShellBot-Rclone
