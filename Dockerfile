@@ -2,8 +2,11 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN mkdir -p /src
-WORKDIR /app
+WORKDIR /src
 COPY . .
+
+ENV RCLONE_CONFIG=/app/.config/rclone.conf
+ENV RCLONE_DRIVE_TPSLIMIT=3
 
 RUN chmod +x setup.sh && sh setup.sh
 
