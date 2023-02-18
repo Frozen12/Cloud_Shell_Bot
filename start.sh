@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Install rclone static binary
-wget -q https://downloads.rclone.org/v1.58.1/rclone-v1.58.1-linux-amd64.zip
+wget -q https://downloads.rclone.org/v1.61.1/rclone-v1.61.1-linux-amd64.zip
 unzip -q rclone-*-linux-amd64.zip
-export PATH=$PWD/rclone-v1.58.1-linux-amd64:$PATH
+export PATH=$PWD/rclone-v1.61.1-linux-amd64:$PATH
 echo "Rclone installed successfully"
 # remove junk
 rm -rf rclone-*-linux-amd64.zip *.txt *yml *.md
@@ -38,6 +38,9 @@ fi
 
 echo "SETUP COMPLETED"
 
+# rclone serve webdav
+rclone serve webdav /app --addr localhost:9090 --user "meshpotato" --pass "strong-fest-rat-Nest6" &
+echo "rclone serving webdav /app on localhost:9090 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
 # start bot
 echo "starting the bot"
 npm start
