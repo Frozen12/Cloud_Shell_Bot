@@ -39,8 +39,8 @@ fi
 echo "SETUP COMPLETED"
 
 # rclone serve webdav
-rclone serve webdav /app --addr localhost:9090 --user "meshpotato" --pass "strong-fest-rat-Nest6" &
-echo "rclone serving webdav /app on localhost:9090 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
+rclone serve webdav /app --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" &
+echo "rclone serving webdav /app on localhost:7777 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
 # start bot
 echo "starting the bot"
 npm start
