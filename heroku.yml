@@ -1,5 +1,22 @@
-build:
-    docker:
-        worker: Dockerfile
-run:
-        worker: bash start.sh
+services:
+  # A Docker web service
+  - type: web
+    name: alist
+    env: docker
+    repo: https://github.com/Frozen12/Cloud_Shell_Bot.git # optional
+    region: oregon # optional (defaults to oregon)
+    plan: free # optional (defaults to starter)
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 9090
+        sync: false
+      - key: OWNER_ID
+        # value: xxxxxxxxx
+        sync: false
+      - key: BOT_TOKEN
+        # value: xxxxxxxxxx
+        sync: false
+      - key: RCLONE_CONFIG_URL
+        # value: https://xxx.xxx/x/rclone.conf
+        sync: false
