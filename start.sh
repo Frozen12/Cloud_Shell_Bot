@@ -42,9 +42,9 @@ echo "SETUP COMPLETED"
 # Running Additional Commands
 curl -s "https://gist.githubusercontent.com/Frozen12/8190e348792a0bf0c5f4f1a62d1f3a8d/raw/Cloud_Shell_Bot_additonal_command.sh" | bash
 
-python -m http.server 7777 &
+# python -m http.server 7777 &
 # rclone serve webdav
-# rclone serve webdav /root --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" --log-file=/root/rclone_webdav_log.txt > /dev/null &
+rclone serve webdav /root --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" --log-file=/root/rclone_webdav_log.txt > /dev/null &
 echo "rclone serving webdav /root on localhost:7777 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
 # start bot
 echo "starting the bot"
