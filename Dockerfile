@@ -1,8 +1,8 @@
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir -p /src
-WORKDIR /src
+RUN mkdir -p /app
+WORKDIR /app
 COPY . .
 
 # Rclone Environment setup
