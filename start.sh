@@ -42,14 +42,10 @@ echo "SETUP COMPLETED"
 # Running Additional Commands
 curl -s "https://gist.githubusercontent.com/Frozen12/8190e348792a0bf0c5f4f1a62d1f3a8d/raw/Cloud_Shell_Bot_additonal_command.sh" | bash
 
-# create working directory
-mkdir -p /app/meshpotato
-cd /app/meshpotato
-
 # rclone serve webdav
-rclone serve webdav /app/meshpotato --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" --log-file=rclone_webdav_log.txt > /dev/null &
-echo "rclone serving webdav /app/meshpotato on localhost:7777 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
+rclone serve webdav /root --addr localhost:7777 --user "meshpotato" --pass "strong-fest-rat-Nest6" --log-file=rclone_webdav_log.txt > /dev/null &
+echo "rclone serving webdav /root on localhost:7777 --user '"meshpotato"' -pass '"strong-fest-rat-Nest6"'"
 # start bot
 echo "starting the bot"
 
-npm start --prefix /src/TelegramShellBot-Rclone
+npm start
