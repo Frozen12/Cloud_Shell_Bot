@@ -5,6 +5,8 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY . .
 
+EXPOSE 7777
+
 # Rclone Environment setup
 ENV RCLONE_CONFIG=/app/.config/rclone.conf
 ENV RCLONE_VERBOSE=1
