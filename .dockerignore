@@ -3,3 +3,4 @@ Dockerfile
 *.Dockerfile
 README.md
 LICENSE
+.yml
