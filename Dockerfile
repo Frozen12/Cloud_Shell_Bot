@@ -17,7 +17,7 @@ ENV RCLONE_SERVER_SIDE_ACROSS_CONFIGS=true
 ENV RCLONE_CRYPT_SERVER_SIDE_ACROSS_CONFIGS=true
 ENV RCLONE_IGNORE_EXISTING=true
 ENV RCLONE_DRIVE_ACKNOWLEDGE_ABUSE=true
-ENV RCLONE_ORDER_BY=size,asc
+ENV RCLONE_ORDER_BY=size,ascending
 ENV SA="--drive-service-account-file=/app/.config/sa-accounts/credentials.json"
 
 
