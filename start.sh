@@ -2,32 +2,33 @@
 
 # Install rclone static binary
 wget -q https://downloads.rclone.org/v1.61.1/rclone-v1.61.1-linux-amd64.zip
-unzip -q rclone-*-linux-amd64.zip
+unzip -q rclone-v1.61.1-linux-amd64.zip
 export PATH=$PWD/rclone-v1.61.1-linux-amd64:$PATH
 echo "Rclone installed successfully"
+
 # remove junk
 rm -rf rclone-*-linux-amd64.zip *.txt *yml *.md
 
 # Create rclone.conf file from base64
 if [[ -n $RCLONE_CONFIG_BASE64 ]]; then
 	echo "Rclone config in BASE64 Format detected"
-        mkdir -p /app/.config
-	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" > /app/.config/rclone.conf
+        mkdir -p /app/.config/rclone
+	echo "$(echo $RCLONE_CONFIG_BASE64|base64 -d)" > /app/.config/rclone/rclone.conf
 
 # fetch rclone.conf from url
 elif [[ -n $RCLONE_CONFIG_URL ]]; then
 	echo "Rclone config file url detected. Fetching rclone.conf . . ."
-	mkdir -p /app/.config
-    curl -o/app/.config/rclone.conf "$RCLONE_CONFIG_URL" > /dev/null 2>&1
+	mkdir -p /app/.config/rclone
+    curl -o/app/.config/rclone/rclone.conf "$RCLONE_CONFIG_URL" > /dev/null 2>&1
 fi
 
 # Rclone Service Account
 if [[ -n $RCLONE_SA_ZIP_URL ]]; then
         echo "Rclone SA zip url detected. Fetching zip file . . ."
-	mkdir -p /app/.config
-        wget -q -O /app/.config/sa-accounts.zip "$RCLONE_SA_ZIP_URL" > /dev/null 2>&1
-        7z x /app/.config/sa-accounts.zip -o/app/.config/ > /dev/null 2>&1
-        rm /app/.config/sa-accounts.zip
+	mkdir -p /app/.config/rclone
+        wget -q -O /app/.config/rclone/sa-accounts.zip "$RCLONE_SA_ZIP_URL" > /dev/null 2>&1
+        unzip -qq -o /app/.config/rclone/sa-accounts.zip -d /app/.config/rclone/
+        rm /app/.config/rclone/sa-accounts.zip
 fi
 
 # Set bot token & owner ID
