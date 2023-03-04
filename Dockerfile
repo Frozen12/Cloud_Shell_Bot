@@ -8,7 +8,7 @@ COPY . .
 EXPOSE 7777
 
 # Rclone Environment setup
-ENV RCLONE_CONFIG=/app/.config/rclone.conf
+ENV RCLONE_CONFIG=/app/.config/rclone/rclone.conf
 ENV RCLONE_VERBOSE=1
 ENV RCLONE_DRIVE_TPSLIMIT=3
 ENV RCLONE_LOG_FILE=rcloneLog.txt
@@ -18,7 +18,11 @@ ENV RCLONE_CRYPT_SERVER_SIDE_ACROSS_CONFIGS=true
 ENV RCLONE_IGNORE_EXISTING=true
 ENV RCLONE_DRIVE_ACKNOWLEDGE_ABUSE=true
 ENV RCLONE_ORDER_BY=size,ascending
-ENV SA="--drive-service-account-file=/app/.config/sa-accounts/credentials.json"
+ENV SA="--drive-service-account-file=/app/.config/rclone/sa-accounts/credentials.json"
+
+# set bash alias
+RUN echo 'alias urc="curl -s "$RCLONE_CONFIG_URL" > $RCLONE_CONFIG"' >> .bashrc
+
 
 
 
