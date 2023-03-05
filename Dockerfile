@@ -16,6 +16,9 @@ ENV RCLONE_PROGRESS=true
 # ENV RCLONE_SERVER_SIDE_ACROSS_CONFIGS=true
 ENV RCLONE_DRIVE_ACKNOWLEDGE_ABUSE=true
 ENV RCLONE_ORDER_BY=size,ascending
+ENV RCLONE_DRIVE_PACER_MIN_SLEEP=15ms
+ENV RCLONE_DRIVE_PACER_BURST=0
+
 ENV SA="--drive-service-account-file=/app/.config/rclone/sa-accounts/credentials.json"
 
 # set bash alias
